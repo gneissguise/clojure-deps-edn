@@ -34,9 +34,7 @@
 
 
  :aliases
- {
-
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ {;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; REPL experience
 
   ;; Rebel Readline
@@ -102,8 +100,7 @@
    {vlaaad/reveal              {:mvn/version "1.3.199"}
     com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :jvm-opts  ["-Dvlaaad.reveal.prefs={:theme,:dark,:font-family,\"Hasklug Nerd Font Mono\",:font-size,16}"]
-   :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]
-   }
+   :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]}
 
 
 
@@ -1046,8 +1043,11 @@
                  :sha     "b1a7fd310b6511048fbacb8e496f574c8ccfa291"}}
    :main-opts  ["-m" "closh.zero.frontend.rebel"]}
 
-
-
+  ;; lsp - Clojure Language Server (LSP) - for emacs/cider interop
+  :lsp {:extra-deps {snoe/clojure-lsp {:git/url "https://github.com/snoe/clojure-lsp" :sha "a90836ce5a50147347a55001505cc29bbe171dc1"}}
+        :main-opts ["-m" "clojure-lsp.main"]
+        :jvm-opts ["-Xmx1g" "-server"]}
+        
   } ;; End of alias definitions
 
 
