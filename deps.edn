@@ -392,16 +392,16 @@
 
   ;; Look up Java Class and method definitions, eg. `cider-find-var` in Emacs
   ;; Requires: Java sources installed locally
-  ;; Examples are from Ubuntu package install locations
+  ;; Examples are from Fedora 34 package install locations
 
   ;; clojure -M:lib/java11-source
   :lib/java8-source
   {:extra-deps
-   {openjdk/java-sources {:local/root "/usr/lib/jvm/openjdk-8/lib/src.zip"}}}
+   {openjdk/java-sources {:local/root "/usr/lib/jvm/jre-1.8.0/lib/src.zip"}}}
 
   :lib/java11-source
   {:extra-deps
-   {openjdk/java-sources {:local/root "/usr/lib/jvm/openjdk-11/lib/src.zip"}}}
+   {openjdk/java-sources {:local/root "/usr/lib/jvm/jre-11/lib/src.zip"}}}
 
   ;; End of: Java Sources
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
