@@ -10,9 +10,7 @@
 ;; Only the last :paths is kept and others are dropped.
 ;; In an :alias, only the last :main-opts is kept and others are dropped.
 
-{
-
- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;; Default Paths
  ;; Directories to include in the classpath to run the application
  ;; Development only paths should be defined in aliases, eg. :env/dev
@@ -1047,7 +1045,19 @@
   :lsp {:extra-deps {snoe/clojure-lsp {:git/url "https://github.com/snoe/clojure-lsp" :sha "a90836ce5a50147347a55001505cc29bbe171dc1"}}
         :main-opts ["-m" "clojure-lsp.main"]
         :jvm-opts ["-Xmx1g" "-server"]}
-        
+
+  ;; Reveal aliases to complement calva
+  :calva/reveal {:extra-deps {vlaaad/reveal {:mvn/version "1.3.206"}}
+           :ns-default vlaaad.reveal
+           :exec-fn repl}
+  :calva/reveal-dep-only
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.194"}}}
+  :calva/remote-repl {:extra-deps {vlaaad/remote-repl {:mvn/version "1.1"}}}
+  :calva/reveal-nrepl-middleware
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.194"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[vlaaad.reveal.nrepl/middleware,cider.nrepl/cider-middleware]"]}
+  
   } ;; End of alias definitions
 
 
