@@ -10,6 +10,7 @@
 ;; Only the last :paths is kept and others are dropped.
 ;; In an :alias, only the last :main-opts is kept and others are dropped.
 
+<<<<<<< HEAD
 ;;;; Top level keys include
 ;; :paths
 ;; :aliases
@@ -21,6 +22,9 @@
 {
 
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+=======
+{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+>>>>>>> 8b85cce7a6912a8918fe3cc0587a5d7cebfd45a0
  ;; Default Paths
  ;; Directories to include in the classpath to run the application
  ;; Development only paths should be defined in aliases, eg. :env/dev
@@ -42,6 +46,7 @@
 
 
  :aliases
+<<<<<<< HEAD
  {
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -73,6 +78,10 @@
                 "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
                 "-i"]}
 
+=======
+ {;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; REPL experience
+>>>>>>> 8b85cce7a6912a8918fe3cc0587a5d7cebfd45a0
 
   ;;;; Rebel Readline enhanced REPL UI
   ;; Clojure REPL with syntax highlighting, built in docs and a quit command `:repl/quit`
@@ -124,7 +133,7 @@
   :repl/reveal-light-nrepl
   {:extra-deps {vlaaad/reveal {:mvn/version "1.3.209"}
                 nrepl/nrepl   {:mvn/version "0.8.3"}}
-   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"Hasklug Nerd Font Mono\",:font-size,16}"]
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware]"
                 "-i"]}
@@ -136,9 +145,8 @@
   {:extra-deps
    {vlaaad/reveal              {:mvn/version "1.3.209"}
     com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
-   :jvm-opts  ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
-   :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]
-   }
+   :jvm-opts  ["-Dvlaaad.reveal.prefs={:theme,:dark,:font-family,\"Hasklug Nerd Font Mono\",:font-size,16}"]
+   :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]}
 
 
 
@@ -453,16 +461,16 @@
 
   ;; Look up Java Class and method definitions, eg. `cider-find-var` in Emacs
   ;; Requires: Java sources installed locally
-  ;; Examples are from Ubuntu package install locations
+  ;; Examples are from Fedora 34 package install locations
 
   ;; clojure -M:lib/java11-source
   :lib/java8-source
   {:extra-deps
-   {openjdk/java-sources {:local/root "/usr/lib/jvm/openjdk-8/lib/src.zip"}}}
+   {openjdk/java-sources {:local/root "/usr/lib/jvm/jre-1.8.0/lib/src.zip"}}}
 
   :lib/java11-source
   {:extra-deps
-   {openjdk/java-sources {:local/root "/usr/lib/jvm/openjdk-11/lib/src.zip"}}}
+   {openjdk/java-sources {:local/root "/usr/lib/jvm/jre-11/lib/src.zip"}}}
 
   ;; End of: Java Sources
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -556,13 +564,14 @@
   {:extra-deps {vlaaad/reveal {:mvn/version "1.3.209"}}
    :ns-default vlaaad.reveal
    :exec-fn    repl
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:dark,:font-family,\"Hasklug Nerd Font Mono\",:font-size,16}"]
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
 
   :inspect/reveal-light
   {:extra-deps {vlaaad/reveal {:mvn/version "1.3.209"}}
    :ns-default vlaaad.reveal
    :exec-fn    repl
-   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"Hasklug Nerd Font Mono\",:font-size,16}"]
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
 
 
@@ -572,6 +581,7 @@
   {:extra-deps
    {vlaaad/reveal              {:mvn/version "1.3.209"}
     com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:dark,:font-family,\"Hasklug Nerd Font Mono\",:font-size,16}"]
    :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]}
 
   ;; clojure -M:inspect/reveal-light-rebel
@@ -579,7 +589,7 @@
   {:extra-deps
    {vlaaad/reveal              {:mvn/version "1.3.209"}
     com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
-   :jvm-opts  ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :jvm-opts  ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"Hasklug Nerd Font Mono\",:font-size,16}"]
    :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]}
 
   ;; Not sending all evaluations to Reveal
@@ -589,7 +599,7 @@
   ;;               cider/cider-nrepl          {:mvn/version "0.26.0"}
   ;;               vlaaad/reveal              {:mvn/version "1.3.209"}
   ;;               com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
-  ;;  :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+  ;;  :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:dark,:font-family,\"Hasklug Nerd Font Mono\",:font-size,16}"]
   ;;  :main-opts  ["-m" "nrepl.cmdline"
   ;;               "--middleware" "[cider.nrepl/cider-middleware,vlaaad.reveal.nrepl/middleware]"
   ;;               "-f" "rebel-readline.main/-main"]}
@@ -598,6 +608,7 @@
   :inspect/reveal-local ;; Hacking the project
   {:extra-deps {vlaaad/reveal
                 {:local/root "/home/practicalli/projects/clojure/visualization/reveal/"}}
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:dark,:font-family,\"Hasklug Nerd Font Mono\",:font-size,16}"]
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
 
   ;; Reveal REPL with nrepl server, connect to from a Clojure aware editor
@@ -605,6 +616,7 @@
   :inspect/reveal-nrepl
   {:extra-deps {vlaaad/reveal {:mvn/version "1.3.209"}
                 nrepl/nrepl   {:mvn/version "0.8.3"}}
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:dark,:font-family,\"Hasklug Nerd Font Mono\",:font-size,16}"]
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware]"]}
 
@@ -612,7 +624,7 @@
   :inspect/reveal-light-nrepl
   {:extra-deps {vlaaad/reveal {:mvn/version "1.3.209"}
                 nrepl/nrepl   {:mvn/version "0.8.3"}}
-   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"Hasklug Nerd Font Mono\",:font-size,16}"]
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware]"]}
 
@@ -624,6 +636,7 @@
                 nrepl/nrepl                   {:mvn/version "0.8.3"}
                 cider/cider-nrepl             {:mvn/version "0.26.0"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "2.5.1"}}
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:dark,:font-family,\"Hasklug Nerd Font Mono\",:font-size,16}"]
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
 
@@ -633,7 +646,7 @@
                 nrepl/nrepl                   {:mvn/version "0.8.3"}
                 cider/cider-nrepl             {:mvn/version "0.26.0"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "2.5.1"}}
-   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"Hasklug Nerd Font Mono\",:font-size,16}"]
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
 
@@ -1124,8 +1137,23 @@
                  :sha     "b1a7fd310b6511048fbacb8e496f574c8ccfa291"}}
    :main-opts  ["-m" "closh.zero.frontend.rebel"]}
 
+  ;; lsp - Clojure Language Server (LSP) - for emacs/cider interop
+  :lsp {:extra-deps {snoe/clojure-lsp {:git/url "https://github.com/snoe/clojure-lsp" :sha "a90836ce5a50147347a55001505cc29bbe171dc1"}}
+        :main-opts ["-m" "clojure-lsp.main"]
+        :jvm-opts ["-Xmx1g" "-server"]}
 
-
+  ;; Reveal aliases to complement calva
+  :calva/reveal {:extra-deps {vlaaad/reveal {:mvn/version "1.3.206"}}
+           :ns-default vlaaad.reveal
+           :exec-fn repl}
+  :calva/reveal-dep-only
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.194"}}}
+  :calva/remote-repl {:extra-deps {vlaaad/remote-repl {:mvn/version "1.1"}}}
+  :calva/reveal-nrepl-middleware
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.194"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[vlaaad.reveal.nrepl/middleware,cider.nrepl/cider-middleware]"]}
+  
   } ;; End of alias definitions
 
 
